@@ -5,37 +5,35 @@
 #define NOT_SUPPORTED_VAR -1
 
 
-double f(double x, int var)
+double f1(double x)
 {
-    if(var == 1)
-    {
-        return 1 / exp(x) + 3;
-    }
-    if(var == 2)
-    {
-        return 2 * x - 2;
-    }
-    if(var == 3)
-    {
-        return 1 / x;
-    }
-    return NOT_SUPPORTED_VAR;
+    return 1 / exp(x) + 3;
 }
 
-double root(double (*f)(double, int), double(*g)(double, int), double a, double b, double eps1, int var)
+double f2(double x)
 {
-    double x = 0;
-    while(fabs(a + b) > 2 * eps1)
+    return 2 * x - 2;
+}
+
+double f3(double x)
+{
+    return 1 / x;
+}
+
+double root(double (*f)(double), double(*g)(double), double a, double b, double eps1)
+{
+    double x = (a + b) / 2;
+    while(fabs(b - a) > 2 * eps1)
     {
-        x = (a + b) / 2;
-        if(f(x, var) * f(a, var) < 0)
+        if((f(x) - g(x)) * (f(a) - g(a)) < 0)
         {
             b = x;
         }
-        if(f(x, var) * f(a, var) < 0)
+        else if((f(x) - g(x)) * (f(b) - g(b)) < 0)
         {
             a = x;
         }
+        x = (a + b) / 2;
     }
     return x;
 }
@@ -48,8 +46,8 @@ int main(void)
 {
     double x;
     int a, b;
-    
-    printf("%lf", f(12.0, 4));
+
+    printf("%lf", root(f2, f1, 2.0, 3.0, 0.0001));
     return 0;
 }
 
