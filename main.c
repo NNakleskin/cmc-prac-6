@@ -20,6 +20,12 @@ double f3(double x)
     return 1 / x;
 }
 
+
+double square_int(double (*f)(double), double x, double delt)
+{
+    return f((x + delt / 2)) * ((x + delt) - x);
+}
+
 double root(double (*f)(double), double(*g)(double), double a, double b, double eps1)
 {
     double x = (a + b) / 2;
@@ -39,14 +45,24 @@ double root(double (*f)(double), double(*g)(double), double a, double b, double 
 }
 
 
-double integral(double(*f), int a, int b, double eps2);
+double integral(double(*f)(double), double a, double b, double eps)
+{
+    double n = (b - a) / eps;
+    double x = a;
+    double result = 0;
+    for(double i = 0; i < n; i++)
+    {
+        result += square_int(f, x, eps);
+        x += eps;
+    }
+    printf("%lf\n", x);
+    return result;
+}
 
 
 int main(void)
 {
-    double x;
-    int a, b;
-
+    printf("%lf\n", integral(f2, 0, 3, 0.001));
     printf("%lf", root(f2, f1, 2.0, 3.0, 0.0001));
     return 0;
 }
