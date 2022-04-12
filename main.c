@@ -2,8 +2,6 @@
 #include "math.h"
 #include "stdlib.h"
 
-#define NOT_SUPPORTED_VAR -1
-
 
 double f1(double x)
 {
@@ -23,13 +21,13 @@ double f3(double x)
 
 double square_int(double (*f)(double), double x, double delt)
 {
-    return f((x + delt / 2)) * ((x + delt) - x);
+    return f((x + delt / 2)) * delt;
 }
 
-double root(double (*f)(double), double(*g)(double), double a, double b, double eps1)
+double root(double (*f)(double), double(*g)(double), double a, double b, double eps)
 {
     double x = (a + b) / 2;
-    while(fabs(b - a) > 2 * eps1)
+    while(fabs(b - a) > 2 * eps)
     {
         if((f(x) - g(x)) * (f(a) - g(a)) < 0)
         {
