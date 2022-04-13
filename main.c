@@ -8,10 +8,12 @@ double f1(double x)
     return 1 / exp(x) + 3;
 }
 
+
 double f2(double x)
 {
     return 2 * x - 2;
 }
+
 
 double f3(double x)
 {
@@ -23,6 +25,7 @@ double square_int(double (*f)(double), double x, double delt)
 {
     return f((x + delt / 2)) * delt;
 }
+
 
 double root(double (*f)(double), double(*g)(double), double a, double b, double eps)
 {
@@ -45,22 +48,22 @@ double root(double (*f)(double), double(*g)(double), double a, double b, double 
 
 double integral(double(*f)(double), double a, double b, double eps)
 {
-    double n = (b - a) / eps;
+    double n = ((b - a) * (b - a)) / (eps * 2);
+    double delt = (b - a) / n;
     double x = a;
     double result = 0;
     for(double i = 0; i < n; i++)
     {
-        result += square_int(f, x, eps);
-        x += eps;
+        result += square_int(f, x, delt);
+        x += delt;
     }
-    printf("%lf\n", x);
     return result;
 }
 
 
 int main(void)
 {
-    printf("%lf\n", integral(f2, 0, 3, 0.001));
+    printf("%lf\n", integral(f1, 1, 3, 0.1));
     printf("%lf", root(f2, f1, 2.0, 3.0, 0.0001));
     return 0;
 }
