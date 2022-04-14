@@ -3,6 +3,37 @@
 #include "stdlib.h"
 
 
+double max(double a, double b)
+{
+    if(a > b)
+    {
+        return a;
+    }
+    return b;
+}
+
+double min(double a, double b)
+{
+    if(a < b)
+    {
+        return a;
+    }
+    return b;
+}
+
+
+double max3(double a, double b, double c)
+{
+    return max(max(a, b), c);
+}
+
+
+double min3(double a, double b, double c)
+{
+    return min(min(a, b), c);
+}
+
+
 double f1(double x)
 {
     return 1 / exp(x) + 3;
@@ -72,6 +103,13 @@ int main(void)
     printf("integ f1 [1, 3] %lf\n", integral(f1, 4, 15, 0.1));
     printf("integ f2 [1, 3] %lf\n", integral(f2, 3, 5, 0.1));
     printf("integ f3 [1, 3] %lf\n", integral(f3, 15, 43, 0.1));
+    printf("%lf\n", max3(3, 2, 1));
+    printf("%lf\n", max3(2, 3, 1));
+    printf("%lf\n", max3(1, 2, 3));
+    
+    printf("%lf\n", min3(3, 2, 1));
+    printf("%lf\n", min3(2, 3, 1));
+    printf("%lf\n", min3(1, 2, 3));
     
     return 0;
 }
