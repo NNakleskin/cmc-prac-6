@@ -34,6 +34,12 @@ double min3(double a, double b, double c)
 }
 
 
+double mid3(double a, double b, double c)
+{
+    return min3(max(a, b), max(b, c), max(a, c));
+}
+
+
 double f1(double x)
 {
     return 1 / exp(x) + 3;
@@ -110,6 +116,10 @@ int main(void)
     printf("%lf\n", min3(3, 2, 1));
     printf("%lf\n", min3(2, 3, 1));
     printf("%lf\n", min3(1, 2, 3));
+    
+    printf("%lf\n", mid3(3, 2, 1));
+    printf("%lf\n", mid3(2, 3, 1));
+    printf("%lf\n", mid3(1, 2, 3));
     
     return 0;
 }
