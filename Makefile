@@ -3,6 +3,7 @@ install:
 	sudo apt install gcc
 
 start:
-	nasm -f elf32 f3.asm -o f3.o
-	gcc -m32 macro.o f3.o -o f3
-	./f3
+	nasm -f elf32 functions.asm -o functions.o
+	gcc -m32 macro.o functions.o -o functions
+	./functions
+
