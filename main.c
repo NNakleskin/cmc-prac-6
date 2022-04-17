@@ -2,8 +2,8 @@
 #include <math.h>
 #include <stdlib.h>
 #include "rifunctions.h"
-#include "main.h"
 #include "minmax.h"
+#include "functions.h"
 
 
 /*
