@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 
 double rieman_integral(double (*f)(double), double x, double delt)
 //Calculation of one term of the Riemann integral sum
