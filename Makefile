@@ -1,9 +1,9 @@
-install:
-	sudo apt install nasm
-	sudo apt install gcc
+all:
+	gcc -m32 -I. -o main.o main.c -c    
+	nasm -f elf32 -o functions.o functions.asm 
+	gcc -o program main.o functions.o -m32
 
-start:
-	nasm -f elf32 functions.asm -o functions.o
-	gcc -m32 macro.o functions.o -o functions
-	./functions
-
+clean:
+	rm main.o
+	rm program
+	rm functions.o
