@@ -1,46 +1,32 @@
-%include "io.inc"
-
 section .rodata
-    op db `%lf`, 0
-
-CEXTERN scanf
-CEXTERN printf
+    a dw 2
+    b dw 4
 
 section .text
+global f1
+global f2
+global f3
+
+
+f1:
+    fld qword[esp + 4]
+    fchs
+    fldl2e
+    fmulp
+    f2xm1
+    fild word[b]
+    ret
+
+f2:
+    fld qword[esp + 4]
+    fild word[a]
+    fmulp
+    fild word[a]
+    fsubp
+    ret
 
 f3:
-    mov ecx, esp
-    and esp, 0xfffffff0
-    push ecx
-    sub esp, 28
-    lea eax, [esp+20]
-
-    mov [esp + 4], eax
-    mov dword[esp], op
-    call scanf
-    cmp eax, 1
-    jne .epilog
-
-    finit 
     fld1
-    fld qword[esp + 20]
+    fld qword[esp + 4] 
     fdivp
-    fstp qword[esp + 20]
-
-    mov eax, [esp + 20]
-    mov [esp + 4], eax
-    mov eax, [esp + 24]
-    mov [esp + 8], eax
-    mov dword[esp], op
-    call printf
-
-    .epilog:
-    add esp, 28
-    pop ecx
-    mov esp, ecx
-
-global CMAIN
-CMAIN:
-    call f3
-    xor eax, eax
     ret
