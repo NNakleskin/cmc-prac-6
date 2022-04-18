@@ -26,12 +26,15 @@ double f3(double x)
 
 int main(int argc, char **argv)
 {
+    short status = 0;
     if(!strcmp(argv[1], "-help"))
     {
+        status = 1;
         help();
     }
     if(!strcmp(argv[1], "-test-f1"))
     {
+        status = 1;
         if(argc == 3)
         {
             test_f1(strtod(argv[2], NULL));		
@@ -43,6 +46,7 @@ int main(int argc, char **argv)
     }
     if(!strcmp(argv[1], "-test-f2"))
     {
+        status = 1;
         if(argc == 3)
         {
             test_f2(strtod(argv[2], NULL));		
@@ -54,6 +58,7 @@ int main(int argc, char **argv)
     }
     if(!strcmp(argv[1], "-test-f3"))
     {
+        status = 1;
         if(argc == 3)
         {
             test_f3(strtod(argv[2], NULL));		
@@ -65,15 +70,22 @@ int main(int argc, char **argv)
     }
     if(!strcmp(argv[1], "-test-integral"))
     {
+        status = 1;
         test_integral();
     }
     if(!strcmp(argv[1], "-test-root"))
     {
+        status = 1;
         test_root();
     }
     if(!strcmp(argv[1], "-solve"))
     {
+        status = 1;
         solve();
+    }
+    if(!status)
+    {
+        help();
     }
     return 0;
 }
