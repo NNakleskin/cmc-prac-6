@@ -58,5 +58,5 @@ void solve()
     double S2 = integral(f2, 0.001, 5, 0.001);
     double S3 = integral(f3, 0, 5, 0.001);
     double S = S1 - S2 - S3;
-    printf("%d\n", S);
+    printf("%lf\n", S);
 }
