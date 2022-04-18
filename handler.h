@@ -5,6 +5,13 @@
 #include "minmax.h"
 #include "functions.h"
 
+
+void help()
+{
+    printf("-test-integral - do test with integral function\n");
+    printf("-test-root - do test with root function\n");
+}
+
 void test_integral()
 {
     printf("integ f1 [1, 3] %lf\n", integral(f1, 1, 3, 0.1));
@@ -21,4 +28,22 @@ void test_root()
     printf("root f1, f2 [2, 3] %lf\n", root(f2, f1, 2.0, 10.0, 0.0001));
     printf("root f2, f3 [2, 3] %lf\n", root(f2, f3, 0.0, 10.0, 0.0001));
     printf("root f1, f3 [2, 3] %lf\n", root(f1, f3, 0.0, 10.0, 0.0001));
+}
+
+
+void test_f1(double x)
+{
+    f1(x);
+}
+
+
+void test_f2(double x)
+{
+    f2(x);
+}
+
+
+void test_f3(double x)
+{
+    f3(x);
 }
