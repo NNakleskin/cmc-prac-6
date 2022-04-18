@@ -26,9 +26,13 @@ double f3(double x)
 }
 */
 
-int main(char* key)
+int main(int argc, char **argv)
 {
-    if(key == "-test-integral")
+    if(argv[1] == "-test-integral")
+    {
+        test_integral();
+    }
+    if(argv[1] == "-test-root")
     {
         test_integral();
     }
