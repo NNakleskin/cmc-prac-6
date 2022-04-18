@@ -71,7 +71,10 @@ int main(int argc, char **argv)
     {
         test_root();
     }
-
+    if(!strcmp(argv[1], "-solve"))
+    {
+        solve();
+    }
     return 0;
 }
 

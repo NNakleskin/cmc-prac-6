@@ -36,17 +36,27 @@ void test_root()
 
 void test_f1(double x)
 {
-    printf("%lf", f1(x));
+    printf("%lf\n", f1(x));
 }
 
 
 void test_f2(double x)
 {
-    printf("%lf", f2(x));
+    printf("%lf\n", f2(x));
 }
 
 
 void test_f3(double x)
 {
-    printf("%lf", f3(x));
+    printf("%lf\n", f3(x));
+}
+
+
+void solve()
+{
+    double S1 = integral(f1, 0, 5, 0.001);
+    double S2 = integral(f2, 0.001, 5, 0.001);
+    double S3 = integral(f3, 0, 5, 0.001);
+    double S = S1 - S2 - S3;
+    printf("%d\n", S);
 }
