@@ -1,15 +1,20 @@
-all:
+.PHONY: all clean install uninstall
+
+OBJ = main.o functions.o
+
+GCCFLAGS = -m32 -o -lm
+	
+all: build
+
+build:
 	gcc -m32 -I. -o main.o main.c -c 
 	nasm -f elf32 -o functions.o functions.asm 
-	gcc -m32 -o program main.o functions.o -lm
+	gcc $(GCCFLAGS) program $(OBJ)
 
 clean:
 	rm main.o
 	rm functions.o
 	rm program
 
-run:
-	gcc -m32 -I. -o main.o main.c -c 
-	nasm -f elf32 -o functions.o functions.asm 
-	gcc -m32 -o program main.o functions.o -lm
+run: all
 	./program
