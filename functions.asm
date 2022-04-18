@@ -10,12 +10,14 @@ global f3
 
 f1:
     fld qword[esp + 4]
-    fchs
-    fldl2e
-    fmulp
-    f2xm1
+    sub esp, 8
+    fstp qword[esp]
+    call exp
+    add esp, 8  
     fild word[b]
+    faddp
     ret
+
 
 f2:
     fld qword[esp + 4]
