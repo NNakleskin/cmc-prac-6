@@ -1,10 +1,8 @@
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
-#include "rifunctions.h"
-#include "minmax.h"
-#include "functions.h"
 #include "handler.h"
+#include <string.h>
 
 
 /*
@@ -28,28 +26,28 @@ double f3(double x)
 
 int main(int argc, char **argv)
 {
-    if(argv[1] == "help")
+    if(!strcmp(argv[1], "-help"))
     {
         help();
     }
-    if(argv[1] == "-test-f1")
+    if(!strcmp(argv[1], "-test-f1"))
     {
         if(argc == 3)
         {
-            test_f1(strtod(argv[2], NULL))
+            test_f1(strtod(argv[2], NULL));		
         }
         else
         {
-            print("Argument not found")
+            puts("Argument not found");
         }
     }
-    if(argv[1] == "-test-integral")
+    if(!strcmp(argv[1], "-test-integral"))
     {
         test_integral();
     }
-    if(argv[1] == "-test-root")
+    if(!strcmp(argv[1], "-test-root"))
     {
-        test_integral();
+        test_root();
     }
     return 0;
 }

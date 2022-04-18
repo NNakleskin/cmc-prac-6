@@ -33,7 +33,7 @@ void test_root()
 
 void test_f1(double x)
 {
-    f1(x);
+    printf("%lf", f1(x));
 }
 
 
