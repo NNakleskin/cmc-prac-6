@@ -1,7 +1,7 @@
 all:
 	gcc -m32 -I. -o main.o main.c -c 
 	nasm -f elf32 -o functions.o functions.asm 
-	gcc -m32 -lm -o program main.o functions.o
+	gcc -m32 -o program main.o functions.o -lm
 
 clean:
 	rm main.o
@@ -11,5 +11,5 @@ clean:
 run:
 	gcc -m32 -I. -o main.o main.c -c 
 	nasm -f elf32 -o functions.o functions.asm 
-	gcc -m32 -lm -o program main.o functions.o
+	gcc -m32 -o program main.o functions.o -lm
 	./program
