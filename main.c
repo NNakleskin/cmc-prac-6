@@ -41,6 +41,28 @@ int main(int argc, char **argv)
             puts("Argument not found");
         }
     }
+    if(!strcmp(argv[1], "-test-f2"))
+    {
+        if(argc == 3)
+        {
+            test_f2(strtod(argv[2], NULL));		
+        }
+        else
+        {
+            puts("Argument not found");
+        }
+    }
+    if(!strcmp(argv[1], "-test-f3"))
+    {
+        if(argc == 3)
+        {
+            test_f3(strtod(argv[2], NULL));		
+        }
+        else
+        {
+            puts("Argument not found");
+        }
+    }
     if(!strcmp(argv[1], "-test-integral"))
     {
         test_integral();
@@ -49,6 +71,7 @@ int main(int argc, char **argv)
     {
         test_root();
     }
+
     return 0;
 }
 

@@ -10,6 +10,9 @@ void help()
 {
     printf("-test-integral - do test with integral function\n");
     printf("-test-root - do test with root function\n");
+    printf("-test-f1 <arg> - calculate function with user arg\n");
+    printf("-test-f2 <arg> - calculate function with user arg\n");
+    printf("-test-f3 <arg> - calculate function with user arg\n");
 }
 
 void test_integral()
@@ -39,11 +42,11 @@ void test_f1(double x)
 
 void test_f2(double x)
 {
-    f2(x);
+    printf("%lf", f2(x));
 }
 
 
 void test_f3(double x)
 {
-    f3(x);
+    printf("%lf", f3(x));
 }
