@@ -18,13 +18,13 @@ clean:
 	rm functions.o
 	rm program
 
--test-integral: all
+test-integral: all
 	./program -test-integral
 
--test-root:
+test-root: build
 	./program -test-root
 
--solve:
+solve: build
 	./program -solve
 
 help: build
