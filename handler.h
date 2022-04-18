@@ -54,9 +54,12 @@ void test_f3(double x)
 
 void solve()
 {
-    double S1 = integral(f1, 0, 5, 0.001);
-    double S2 = integral(f2, 0.001, 5, 0.001);
-    double S3 = integral(f3, 0, 5, 0.001);
+    double root1 = root(f1, f2, 0, 5, 0.001);
+    double root2 = root(f2, f3, 0, 5, 0.001);
+    double root3 = root(f1, f3, 0, 5, 0.001);
+    double S1 = integral(f1, root3, root1, 0.001);
+    double S2 = integral(f2, root2, root1, 0.001);
+    double S3 = integral(f3, root3, root2, 0.001);
     double S = S1 - S2 - S3;
     printf("%lf\n", S);
 }
