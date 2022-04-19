@@ -4,6 +4,33 @@
 #include "rifunctions.h"
 #include "minmax.h"
 #include "functions.h"
+#include <stdio.h>
+
+
+double f4(double x)
+{
+    return 2 * x * x;
+}
+
+double f5(double x)
+{
+    return 8 + 2 * x - x * x;
+}
+
+double f6(double x)
+{
+    return 2 * x + 1;
+}
+
+double f7(double x)
+{
+    return 6 * x;
+}
+
+double f8(double x)
+{
+    return x;
+}
 
 
 void help()
@@ -13,6 +40,7 @@ void help()
     printf("-test-f1 <arg> - calculate function with user arg\n");
     printf("-test-f2 <arg> - calculate function with user arg\n");
     printf("-test-f3 <arg> - calculate function with user arg\n");
+    printf("-solve - solve the problem\n");
 }
 
 void test_integral()
@@ -23,6 +51,9 @@ void test_integral()
     printf("integ f1 [4, 15] %lf\n", integral(f1, 4, 15, 0.1));
     printf("integ f2 [3, 5] %lf\n", integral(f2, 3, 5, 0.1));
     printf("integ f3 [15, 43] %lf\n", integral(f3, 15, 43, 0.1));
+    printf("Other funcrions\n");
+    printf("2 * x * x: [1 , 2] Answer: 4,66667 Result: %lf\n", integral(f4, 1, 2, 0.001));
+    printf("8 + 2x - x^2): [-2, 4] Answer: 36 Result: %lf\n", integral(f5, -2, 4, 0.001));
 }
 
 
@@ -31,6 +62,9 @@ void test_root()
     printf("root f1, f2 [2, 3] %lf\n", root(f2, f1, 2.0, 10.0, 0.0001));
     printf("root f2, f3 [2, 3] %lf\n", root(f2, f3, 0.0, 10.0, 0.0001));
     printf("root f1, f3 [2, 3] %lf\n", root(f1, f3, 0.0, 10.0, 0.0001));
+    printf("Other funcrions\n");
+    printf("2x + 1 && 6x Result: %lf\n", root(f6, f7, 0, 5, 0.00001));
+    printf("1/x && x Result: %lf\n", root(f3, f8, 0, 5, 0.001));
 }
 
 
