@@ -9,21 +9,21 @@ NASMFLAGS = -f elf32 -o
 all:
 	gcc $(GCCFLAGS) main.o main.c -c
 	nasm $(NASMFLAGS) functions.o functions.asm 
-	gcc $(GCCFLAGS) program $(OBJ) -lm
+	gcc $(GCCFLAGS) pr $(OBJ) -lm
 
 clean:
 	rm main.o
 	rm functions.o
-	rm program
+	rm pr
 
 test-integral: all
-	./program -test-integral
+	./pr -test-integral
 
 test-root: build
-	./program -test-root
+	./pr -test-root
 
 solve: build
-	./program -solve
+	./pr -solve
 
 help: build
-	./program -help
+	./pr -help
