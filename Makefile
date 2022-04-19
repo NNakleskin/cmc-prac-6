@@ -5,11 +5,9 @@ OBJ = main.o functions.o
 GCCFLAGS = -m32 -o
 
 NASMFLAGS = -f elf32 -o
-	
-all: build
 
-build:
-	gcc $(GCCFLAGS) -I. main.o main.c -c 
+all:
+	gcc $(GCCFLAGS) main.o main.c -c
 	nasm $(NASMFLAGS) functions.o functions.asm 
 	gcc $(GCCFLAGS) program $(OBJ) -lm
 
