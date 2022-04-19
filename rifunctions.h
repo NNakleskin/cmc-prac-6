@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <math.h>
 
 double rieman_integral(double (*f)(double), double x, double delt)
