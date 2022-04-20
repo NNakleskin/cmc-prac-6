@@ -6,6 +6,7 @@
 #include "functions.h"
 #include <stdio.h>
 #include "counter.h"
+#include "test_functions.h"
 
 
 double f4(double x)
