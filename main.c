@@ -83,6 +83,14 @@ int main(int argc, char **argv)
         status = 1;
         solve();
     }
+    if(!strcmp(argv[2], "-show-absciss"))
+    {
+        show_absciss();
+    }
+    if(!strcmp(argv[2], "-show-count"))
+    {
+        show_count();
+    }
     if(!status)
     {
         help();
