@@ -1,4 +1,4 @@
-double root_counter(double (*f)(double), double(*g)(double), double a, double b, double eps)
+int root_counter(double (*f)(double), double(*g)(double), double a, double b, double eps)
 {
     double x = (a + b) / 2;
     int count = 0;
