@@ -5,6 +5,7 @@
 #include "minmax.h"
 #include "functions.h"
 #include <stdio.h>
+#include "counter.h"
 
 
 double f4(double x)
@@ -109,7 +110,7 @@ void show_absciss()
 
 void show_count()
 {
-    printf("root f1, f2: %lf\n", root_counter(f2, f1, 0.0, 5.0, 0.0001));
-    printf("root f2, f3: %lf\n", root_counter(f2, f3, 0.0, 5.0, 0.0001));
-    printf("root f1, f3: %lf\n", root_counter(f1, f3, 0.0, 5.0, 0.0001));
+    printf("root f1, f2: %d\n", root_counter(f2, f1, 0.0, 5.0, 0.0001));
+    printf("root f2, f3: %d\n", root_counter(f2, f3, 0.0, 5.0, 0.0001));
+    printf("root f1, f3: %d\n", root_counter(f1, f3, 0.0, 5.0, 0.0001));
 }
