@@ -9,9 +9,12 @@ double rieman_integral(double (*f)(double), double x, double delt)
 
 double root(double (*f)(double), double(*g)(double), double a, double b, double eps)
 {
+    extern int count;
     double x = (a + b) / 2;
+    count = 0;
     while(fabs(b - a) > 2 * eps)
     {
+        count++;
         if((f(x) - g(x)) * (f(a) - g(a)) < 0)
         {
             b = x;
