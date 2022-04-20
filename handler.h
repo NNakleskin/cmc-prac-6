@@ -97,3 +97,19 @@ void solve()
     double S = S1 - S2 - S3;
     printf("%lf\n", S);
 }
+
+
+void show_absciss()
+{
+    printf("root f1, f2: %lf\n", root(f2, f1, 0.0, 5.0, 0.0001));
+    printf("root f2, f3: %lf\n", root(f2, f3, 0.0, 5.0, 0.0001));
+    printf("root f1, f3: %lf\n", root(f1, f3, 0.0, 5.0, 0.0001));
+}
+
+
+void show_count()
+{
+    printf("root f1, f2: %lf\n", root_counter(f2, f1, 0.0, 5.0, 0.0001));
+    printf("root f2, f3: %lf\n", root_counter(f2, f3, 0.0, 5.0, 0.0001));
+    printf("root f1, f3: %lf\n", root_counter(f1, f3, 0.0, 5.0, 0.0001));
+}
