@@ -18,6 +18,8 @@ void help()
     printf("-test-f2 <arg> - calculate function with user arg\n");
     printf("-test-f3 <arg> - calculate function with user arg\n");
     printf("-solve - solve the problem\n");
+    printf("-show_count - show count of iterations");
+    printf("-show_absciss - show absciss of functions");
     printf("\n\n\n");
 }
 
