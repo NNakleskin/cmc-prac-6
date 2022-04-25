@@ -1,4 +1,4 @@
-.PHONY: all clean help
+.PHONY: all clean
 
 OBJ = main.o functions.o
 
@@ -9,7 +9,6 @@ NASMFLAGS = -f elf32 -o
 all: main.o functions.o
 	gcc $(GCCFLAGS) pr $(OBJ) -lm
 
-	
 main.o: main.c
 	gcc $(GCCFLAGS) main.o main.c -c
 
@@ -22,6 +21,4 @@ build_all:
 	gcc $(GCCFLAGS) pr $(OBJ) -lm
 
 clean:
-	rm main.o
-	rm functions.o
-	rm pr
+	rm $(OBJ) pr
