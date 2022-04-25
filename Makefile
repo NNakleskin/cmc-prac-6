@@ -11,7 +11,7 @@ all: main.o functions.o
 
 	
 main.o: main.c
-	gcc $(GCCFLAGS) main.o -o main.c -c
+	gcc $(GCCFLAGS) main.o main.c -c
 
 functions.o: functions.asm
 	nasm $(NASMFLAGS) functions.o functions.asm 
