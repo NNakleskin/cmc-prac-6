@@ -22,3 +22,21 @@ build_all:
 
 clean:
 	rm $(OBJ) pr
+
+test_all:
+	./pr -solve -test-root -test-integral -show-absciss -show-count
+
+help:
+	./pr -help
+
+solve:
+	./pr -solve
+
+test-root:
+	./pr -test-root
+
+test_integral:
+	./pr -test-integral
+
+show_absciss:
+	./pr show-count
