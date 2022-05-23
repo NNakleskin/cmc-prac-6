@@ -1,11 +1,5 @@
 #include <math.h>
 
-double rieman_integral(double (*f)(double), double x, double delt)
-//Calculation of one term of the Riemann integral sum
-{
-    return f((x + delt / 2)) * delt;
-}
-
 
 double root(double (*f)(double), double(*g)(double), double a, double b, double eps)
 {
@@ -29,9 +23,15 @@ double root(double (*f)(double), double(*g)(double), double a, double b, double 
 }
 
 
-double integral(double(*f)(double), double a, double b, double eps)
+double rieman_integral(double (*f)(double), double x, double delt)
+//Calculation of one term of the Riemann integral sum
 {
-    double n = ((b - a) * (b - a)) / (eps * 2);
+    return f((x + delt / 2)) * delt;
+}
+
+
+double make_integral(double(*f)(double), double a, double b, double n)
+{
     double delt = (b - a) / n;
     double x = a;
     double result = 0;
@@ -41,4 +41,14 @@ double integral(double(*f)(double), double a, double b, double eps)
         x += delt;
     }
     return result;
+}
+
+double integral(double(*f)(double), double a, double b, double eps)
+{
+    int n = 1;
+    while(fabs(make_integral(f, a, b, n) - make_integral(f, a, b, 2 * n)) >= eps)
+    {
+        n++;
+    }
+    return make_integral(f, a, b, 2 * n);
 }
